@@ -68,13 +68,8 @@ export default function BungalowsHero({ slides }: BungalowsHeroProps) {
           </motion.div>
         </AnimatePresence>
 
-        {/* Multi-Layer Cinematic Luxury Overlay */}
-        {/* Layer 1: Dark oceanic vertical gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-[#0C3B73]/45 to-black/80" />
-        {/* Layer 2: Radial vignette focusing attention to the center */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_25%,_rgba(0,0,0,0.55)_100%)] pointer-events-none" />
-        {/* Layer 3: Warm dark depth for crisp contrast */}
-        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        {/* Light subtle overlay - room imagery shines through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/25 pointer-events-none" />
       </div>
 
       {/* Main Content */}

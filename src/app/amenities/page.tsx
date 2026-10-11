@@ -6,8 +6,34 @@ import AmenitiesCTA from '../components/amenities/AmenitiesCTA';
 import { fetchGlobalAmenities, fetchPage } from '@/lib/laravel/api';
 
 export const metadata: Metadata = {
-  title: 'Resort Amenities | Europe Enchanted Koh Rong',
-  description: 'Discover the world-class amenities at Europe Enchanted Koh Rong, from our infinity pool and spa to island tours and fine dining.',
+  title: 'Resort Amenities & Facilities | Europe Enchanted Koh Rong',
+  description:
+    'Discover the world-class amenities at Europe Enchanted Koh Rong, including our beachfront infinity pool, tropical cocktail bar, seaside dining, island excursions, and high-speed WiFi.',
+  alternates: {
+    canonical: 'https://europeenchantedkohrong.com/amenities',
+  },
+  openGraph: {
+    title: 'Resort Amenities & Facilities | Europe Enchanted Koh Rong',
+    description:
+      'Discover the world-class amenities at Europe Enchanted Koh Rong, including our beachfront infinity pool, tropical cocktail bar, seaside dining, and island excursions.',
+    url: 'https://europeenchantedkohrong.com/amenities',
+    images: [
+      {
+        url: '/images/common/resort-4.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Amenities at Europe Enchanted Resort',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Resort Amenities & Facilities | Europe Enchanted Koh Rong',
+    description:
+      'Discover beachfront infinity pool, tropical cocktail bar, seaside dining, and island excursions.',
+    images: ['/images/common/resort-4.jpg'],
+  },
 };
 
 export default async function AmenitiesPage() {

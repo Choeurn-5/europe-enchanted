@@ -10,11 +10,32 @@ import PropertyOverview from '@/app/components/bungalows/PropertyOverview'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Our Bungalows | Europe Enchanted Koh Rong',
-  description: 'Explore our beachfront and garden bungalows on Koh Toch Beach, Koh Rong. Private balconies, modern amenities, and breathtaking island views.',
+  title: 'Our Bungalows & Luxury Accommodations | Europe Enchanted Koh Rong',
+  description:
+    'Explore our beachfront and ocean-view wooden bungalows on Koh Toch Beach, Koh Rong. Private balconies, handcrafted natural teak interiors, air conditioning, and panoramic sea views.',
+  alternates: {
+    canonical: 'https://europeenchantedkohrong.com/bungalows',
+  },
   openGraph: {
-    title: 'Our Bungalows | Europe Enchanted Koh Rong',
-    description: 'Explore our beachfront and garden bungalows on Koh Toch Beach, Koh Rong.',
+    title: 'Our Bungalows & Luxury Accommodations | Europe Enchanted Koh Rong',
+    description:
+      'Explore our beachfront and ocean-view wooden bungalows on Koh Toch Beach, Koh Rong.',
+    url: 'https://europeenchantedkohrong.com/bungalows',
+    images: [
+      {
+        url: '/images/common/resort-4.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Bungalows at Europe Enchanted Resort',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Our Bungalows & Luxury Accommodations | Europe Enchanted Koh Rong',
+    description:
+      'Explore beachfront wooden bungalows with private balconies and panoramic sea views.',
     images: ['/images/common/resort-4.jpg'],
   },
 }

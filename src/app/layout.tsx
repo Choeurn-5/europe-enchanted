@@ -54,6 +54,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -109,8 +112,54 @@ export default async function RootLayout({
 }>) {
   const settings = await fetchSettings();
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Resort',
+    name: 'Europe Enchanted Bungalows & Resort',
+    description:
+      'A private island escape on Koh Rong, Cambodia — luxury wooden bungalows, crystal-clear turquoise waters, infinity pool, and pristine tropical serenity.',
+    url: siteUrl,
+    telephone: settings?.site_phone || '+855 92 748 899',
+    email: settings?.site_email || 'info@europeenchantedkohrong.com',
+    logo: `${siteUrl}/images/common/logo.png`,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Koh Toch Beach',
+      addressLocality: 'Koh Rong',
+      addressRegion: 'Sihanoukville',
+      addressCountry: 'KH',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '10.7180',
+      longitude: '103.2340',
+    },
+    priceRange: '$$',
+    image: `${siteUrl}/images/common/resort-4.jpg`,
+    checkinTime: '14:00',
+    checkoutTime: '11:00',
+    hasMap: 'https://maps.google.com/?q=Europe+Enchanted+Bungalow+Koh+Rong',
+    amenityFeature: [
+      { '@type': 'LocationFeatureSpecification', name: 'Beachfront', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Swimming Pool', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Restaurant', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Free WiFi', value: true },
+      { '@type': 'LocationFeatureSpecification', name: 'Boat Transfer', value: true },
+    ],
+    sameAs: [
+      settings?.social_facebook || 'https://www.facebook.com/europeenchanted/',
+      settings?.social_instagram || 'https://www.instagram.com/europeenchantedbungalow/',
+    ],
+  };
+
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={`${jost.variable} ${montserrat.variable} font-sans antialiased selection:bg-[#00A3C4] selection:text-white`}

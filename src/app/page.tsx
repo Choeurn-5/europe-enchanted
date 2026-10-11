@@ -1,4 +1,5 @@
 // src/app/page.tsx
+import type { Metadata } from 'next';
 import Hero from '@/app/components/home/Hero';
 import IntroStrip from '@/app/components/home/IntroStrip';
 import FeaturedBungalows from '@/app/components/home/FeaturedBungalows';
@@ -9,6 +10,38 @@ import Testimonials from '@/app/components/home/Testimonials';
 import LocationMap from '@/app/components/home/LocationMap';
 import FinalCTA from '@/app/components/home/FinalCTA';
 import { fetchPage, fetchGlobalAmenities } from '@/lib/laravel/api';
+
+export const metadata: Metadata = {
+  title: 'Europe Enchanted Bungalows | Koh Rong Island, Cambodia',
+  description:
+    'Experience Europe Enchanted Resort on Koh Toch Beach, Koh Rong Island. Handcrafted wooden bungalows, crystal-clear turquoise waters, beachfront infinity pool, and pristine tropical serenity.',
+  alternates: {
+    canonical: 'https://europeenchantedkohrong.com',
+  },
+  openGraph: {
+    title: 'Europe Enchanted Bungalows | Koh Rong Island, Cambodia',
+    description:
+      'Experience Europe Enchanted Resort on Koh Toch Beach, Koh Rong Island. Handcrafted wooden bungalows, crystal-clear turquoise waters, beachfront infinity pool, and pristine tropical serenity.',
+    url: 'https://europeenchantedkohrong.com',
+    siteName: 'Europe Enchanted Bungalows',
+    images: [
+      {
+        url: '/images/common/resort-4.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Europe Enchanted Bungalows & Resort on Koh Rong',
+      },
+    ],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Europe Enchanted Bungalows | Koh Rong Island, Cambodia',
+    description:
+      'Experience Europe Enchanted Resort on Koh Toch Beach, Koh Rong Island. Handcrafted wooden bungalows and pristine tropical serenity.',
+    images: ['/images/common/resort-4.jpg'],
+  },
+};
 
 export default async function Home() {
   // Fetch data from Laravel backend concurrently

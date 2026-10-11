@@ -35,70 +35,22 @@ export default function GalleryHeader({ data }: { data?: any }) {
           frameBorder="0"
         />
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Light subtle overlay - video shines through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/25 pointer-events-none" />
 
-        {/* Blue resort overlay */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-br
-            from-[#05182e]/85
-            via-[#0C3B73]/55
-            to-[#00A3C4]/35
-          "
-        />
-
-        {/* Bottom fade */}
+        {/* Subtle bottom blend */}
         <div
           className="
             absolute
             inset-x-0
             bottom-0
-            h-40
+            h-16
             bg-gradient-to-t
             from-[#f8f9fc]
-            via-[#f8f9fc]/40
             to-transparent
           "
         />
       </div>
-
-      {/* =========================================================
-          DECORATIVE AMBIENT GLOWS
-          ========================================================= */}
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -top-24
-          -right-24
-          w-96
-          h-96
-          rounded-full
-          bg-cyan-400/15
-          blur-3xl
-          z-[1]
-        "
-      />
-
-      <div
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -bottom-20
-          -left-20
-          w-80
-          h-80
-          rounded-full
-          bg-[#0C3B73]/40
-          blur-3xl
-          z-[1]
-        "
-      />
 
       {/* =========================================================
           CONTENT

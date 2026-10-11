@@ -36,13 +36,17 @@ export async function generateMetadata({
       description:
         bungalow.short_description ||
         bungalow.subtitle ||
-        `Book your stay at ${bungalow.title} on Koh Rong Island, Cambodia.`,
+        `Book your stay at ${bungalow.title} on Koh Rong Island, Cambodia. Handcrafted wooden architecture, beachfront serenity, and modern amenities.`,
+      alternates: {
+        canonical: `https://europeenchantedkohrong.com/bungalows/${slug}`,
+      },
       openGraph: {
         title: `${bungalow.title} | Europe Enchanted Koh Rong`,
         description:
           bungalow.short_description ||
           bungalow.subtitle ||
           `Book your stay at ${bungalow.title} on Koh Rong Island, Cambodia.`,
+        url: `https://europeenchantedkohrong.com/bungalows/${slug}`,
         images: [
           {
             url: imageUrl,
@@ -51,6 +55,16 @@ export async function generateMetadata({
             alt: bungalow.title,
           },
         ],
+        type: 'website',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: `${bungalow.title} | Europe Enchanted Koh Rong`,
+        description:
+          bungalow.short_description ||
+          bungalow.subtitle ||
+          `Book your stay at ${bungalow.title} on Koh Rong Island, Cambodia.`,
+        images: [imageUrl],
       },
     }
   } catch {
@@ -109,8 +123,88 @@ export default async function BungalowDetailPage({
     kitchen: { icon: '🍽️', label: 'Kitchen' },
   }
 
+  const roomJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HotelRoom',
+    name: title,
+    description: bungalow.short_description || subtitle || description,
+    image: galleryImages,
+    occupancy: {
+      '@type': 'QuantitativeValue',
+      maxValue: maxGuests || 2,
+    },
+    bed: bedType || 'King Bed',
+    ...(sizeSqm
+      ? {
+          floorSize: {
+            '@type': 'QuantitativeValue',
+            value: sizeSqm,
+            unitCode: 'MTK',
+          },
+        }
+      : {}),
+    containedInPlace: {
+      '@type': 'Resort',
+      name: 'Europe Enchanted Bungalows & Resort',
+      url: 'https://europeenchantedkohrong.com',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: 'Koh Toch Beach',
+        addressLocality: 'Koh Rong',
+        addressRegion: 'Sihanoukville',
+        addressCountry: 'KH',
+      },
+    },
+    ...(bungalow.price_per_night
+      ? {
+          offers: {
+            '@type': 'Offer',
+            price: bungalow.price_per_night,
+            priceCurrency: 'USD',
+            availability: 'https://schema.org/InStock',
+            url: `https://europeenchantedkohrong.com/bungalows/${slug}`,
+          },
+        }
+      : {}),
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://europeenchantedkohrong.com',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Bungalows',
+        item: 'https://europeenchantedkohrong.com/bungalows',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: title,
+        item: `https://europeenchantedkohrong.com/bungalows/${slug}`,
+      },
+    ],
+  };
+
   return (
     <main className="min-h-screen bg-[#f8f9fc]">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(roomJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       {/* Back navigation */}
       <div className="max-w-7xl mx-auto px-4 pt-28 pb-4">
         <Link

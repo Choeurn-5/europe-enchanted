@@ -10,12 +10,23 @@ export const metadata: Metadata = {
   title: 'About Us & Our Story | Europe Enchanted Koh Rong',
   description:
     'Discover the story of Europe Enchanted Bungalows & Resort on Koh Rong Island, Cambodia. Handcrafted wooden architecture, beachfront tranquility, and authentic Khmer hospitality.',
+  alternates: {
+    canonical: 'https://europeenchantedkohrong.com/about',
+  },
   openGraph: {
     title: 'About Us & Our Story | Europe Enchanted Koh Rong',
     description:
       'Discover the story of Europe Enchanted Bungalows & Resort on Koh Rong Island, Cambodia. Handcrafted wooden architecture, beachfront tranquility, and authentic Khmer hospitality.',
     url: 'https://europeenchantedkohrong.com/about',
-    images: ['/images/common/resort-4.jpg'],
+    images: [
+      {
+        url: '/images/common/resort-4.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'About Europe Enchanted Resort',
+      },
+    ],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

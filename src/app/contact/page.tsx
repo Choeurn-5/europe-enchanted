@@ -9,12 +9,23 @@ export const metadata: Metadata = {
   title: 'Contact Us & Island Location | Europe Enchanted Koh Rong',
   description:
     'Contact Europe Enchanted Bungalows & Resort on Koh Rong Island, Cambodia. Speedboat transfers, room reservations, arrival assistance, and direct WhatsApp support.',
+  alternates: {
+    canonical: 'https://europeenchantedkohrong.com/contact',
+  },
   openGraph: {
     title: 'Contact Us & Island Location | Europe Enchanted Koh Rong',
     description:
       'Contact Europe Enchanted Bungalows & Resort on Koh Rong Island, Cambodia. Speedboat transfers, room reservations, arrival assistance, and direct WhatsApp support.',
     url: 'https://europeenchantedkohrong.com/contact',
-    images: ['/images/common/resort-4.jpg'],
+    images: [
+      {
+        url: '/images/common/resort-4.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Contact Europe Enchanted Resort',
+      },
+    ],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

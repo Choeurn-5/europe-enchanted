@@ -43,20 +43,8 @@ export default function AmenitiesHeader({ data }: { data?: any }) {
             VIDEO OVERLAY
             ======================================================= */}
 
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/20" />
-
-        {/* Blue gradient overlay */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-gradient-to-b
-            from-[#062B55]/80
-            via-[#062B55]/45
-            to-[#f8f9fc]
-          "
-        />
+        {/* Light subtle overlay - video shines through clearly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/25 pointer-events-none" />
       </div>
 
       {/* =========================================================

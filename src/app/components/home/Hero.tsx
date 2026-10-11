@@ -60,8 +60,8 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           frameBorder="0"
         />
 
-        {/* Clean, light cinematic overlay - bright and vibrant video */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/35 pointer-events-none" />
+        {/* Ultra-light overlay - video shines through crystal clearly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/25 pointer-events-none" />
       </motion.div>
 
       {/* Hero Content */}
