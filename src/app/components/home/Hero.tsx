@@ -60,13 +60,8 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           frameBorder="0"
         />
 
-        {/* Enhanced Multi-Layer Cinematic Overlay */}
-        {/* Layer 1: Deep ocean & charcoal top/bottom gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-[#0C3B73]/35 to-black/80" />
-        {/* Layer 2: Radial vignette to focus eyes on central typography */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_20%,_rgba(0,0,0,0.55)_100%)] pointer-events-none" />
-        {/* Layer 3: Subtle warm darkness for crystal clear text readability */}
-        <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+        {/* Clean, light cinematic overlay - bright and vibrant video */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/35 pointer-events-none" />
       </motion.div>
 
       {/* Hero Content */}
@@ -89,7 +84,7 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           </span>
         </motion.div>
 
-        <h1 className="text-white text-4xl sm:text-6xl md:text-7xl font-serif font-bold tracking-wide max-w-4xl flex flex-wrap justify-center gap-x-4 drop-shadow-[0_4px_16px_rgba(0,0,0,0.6)]">
+        <h1 className="text-white text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-4xl flex flex-wrap justify-center gap-x-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
           {headline.map((word, i) => (
             <motion.span
               key={word}
@@ -107,7 +102,7 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-white/90 text-base sm:text-lg mt-6 max-w-xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] font-light leading-relaxed"
+          className="text-white text-base sm:text-lg mt-6 max-w-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] font-normal leading-relaxed"
         >
           {subheading}
         </motion.p>
