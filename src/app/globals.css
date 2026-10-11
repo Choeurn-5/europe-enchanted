@@ -1,18 +1,104 @@
 @import "tailwindcss";
 
+/* -------------------------------------------------------------
+   Custom Typography System
+   ------------------------------------------------------------- */
+@font-face {
+  font-family: "Brandon";
+  src: url("/fonts/BrandonGrotesque-Regular.woff2") format("woff2"),
+       url("/font/BrandonGrotesque-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brandon-Medium";
+  src: url("/fonts/BrandonGrotesque-Medium.woff2") format("woff2"),
+       url("/font/BrandonGrotesque-Medium.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brandon-Bold";
+  src: url("/fonts/BrandonGrotesque-Bold.woff2") format("woff2"),
+       url("/font/BrandonGrotesque-Bold.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Futura-Medium";
+  src: url("/fonts/FuturaBT-Medium.woff2") format("woff2"),
+       url("/font/FuturaBT-Medium.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Arial-Black";
+  src: url("/fonts/Arial-Black.woff2") format("woff2"),
+       url("/font/Arial-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-heading-black: "Arial Black", var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body-luxury: var(--font-jost), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography Families */
+  --font-body: "Brandon", sans-serif;
+  --font-body-medium: "Brandon-Medium", "Brandon", sans-serif;
+  --font-body-bold: "Brandon-Bold", "Brandon", sans-serif;
+  --font-heading: "Arial-Black", Arial, sans-serif;
+  --font-button: "Futura-Medium", Futura, sans-serif;
+
+  /* Sizes & Line Heights (Desktop) */
+  --font-size-body: 16px;
+  --line-height-body: 25.6px;
+  --font-size-large-text: 21px;
+  --line-height-large-text: 33.6px;
+
+  --font-size-hero: 48px;
+  --line-height-hero: 60px;
+  --font-size-h1: 40px;
+  --line-height-h1: 48px;
+  --font-size-h2: 32px;
+  --line-height-h2: 40px;
+  --font-size-h3: 24px;
+  --line-height-h3: 30px;
+  --font-size-h4: 20px;
+  --line-height-h4: 26px;
+  --font-size-h5: 18px;
+  --line-height-h5: 24px;
+  --font-size-h6: 16px;
+  --line-height-h6: 22px;
+
+  --font-size-button: 12px;
+  --line-height-button: 12px;
+
+  /* Letter Spacings */
+  --letter-spacing-body: 0.32px;
+  --letter-spacing-heading: 0.32px;
+  --letter-spacing-button: 1.392px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-body-luxury);
-  --font-serif: var(--font-heading-black);
-  --font-heading: var(--font-heading-black);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-heading);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-body-medium: var(--font-body-medium);
+  --font-body-bold: var(--font-body-bold);
+  --font-button: var(--font-button);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,22 +108,152 @@
   }
 }
 
+/* -------------------------------------------------------------
+   1. Body Text and General Interface Text
+   ------------------------------------------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body-luxury);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  letter-spacing: var(--letter-spacing-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Luxury boutique hotel typography matching reference style */
-h1, h2, h3, h4, h5, h6, .font-serif {
-  font-family: var(--font-heading-black) !important;
-  font-weight: 900 !important;
-  letter-spacing: -0.025em;
+p,
+nav a,
+footer,
+form label,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  letter-spacing: var(--letter-spacing-body);
 }
 
-/* Elegant subtitle & paragraph rhythm */
 p {
-  line-height: 1.75;
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+/* -------------------------------------------------------------
+   2. Larger Paragraph Text
+   ------------------------------------------------------------- */
+.large-paragraph,
+.lead-text,
+p.lead {
+  font-family: var(--font-body);
+  font-style: normal;
+  font-weight: 400;
+  font-size: var(--font-size-large-text);
+  line-height: var(--line-height-large-text);
+  letter-spacing: var(--letter-spacing-body);
+}
+
+/* -------------------------------------------------------------
+   3. Main Headings
+   ------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6,
+.font-serif,
+.font-heading {
+  font-family: var(--font-heading) !important;
+  font-weight: 900 !important;
+  font-style: normal;
+  letter-spacing: var(--letter-spacing-heading);
+}
+
+.hero-h1 {
+  font-size: var(--font-size-hero);
+  line-height: var(--line-height-hero);
+}
+
+h1:not(.hero-h1) {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+}
+
+h5 {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+}
+
+h6 {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
+}
+
+/* -------------------------------------------------------------
+   4. Buttons and Calls to Action
+   ------------------------------------------------------------- */
+button,
+a.btn,
+.btn,
+.btn-primary,
+.btn-secondary,
+[role="button"],
+.font-button {
+  font-family: var(--font-button);
+  font-weight: 400;
+  font-style: normal;
+  font-size: var(--font-size-button);
+  line-height: var(--line-height-button);
+  letter-spacing: var(--letter-spacing-button);
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------------
+   5. Brandon Font Variants (Medium & Bold)
+   ------------------------------------------------------------- */
+.font-medium,
+strong,
+b {
+  font-family: var(--font-body-bold);
+  font-weight: 400;
+}
+
+.font-body-medium {
+  font-family: var(--font-body-medium);
+  font-weight: 400;
+}
+
+.font-body-bold {
+  font-family: var(--font-body-bold);
+  font-weight: 400;
+}
+
+/* -------------------------------------------------------------
+   Responsive Adjustments (Mobile & Tablet)
+   ------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --font-size-hero: 32px;
+    --line-height-hero: 40px;
+    --font-size-h1: 32px;
+    --line-height-h1: 40px;
+    --font-size-h2: 26px;
+    --line-height-h2: 34px;
+    --font-size-h3: 21px;
+    --line-height-h3: 28px;
+    --font-size-large-text: 18px;
+    --line-height-large-text: 29px;
+  }
 }

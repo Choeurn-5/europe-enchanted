@@ -84,7 +84,7 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           </span>
         </motion.div>
 
-        <h1 className="text-white text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-4xl flex flex-wrap justify-center gap-x-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+        <h1 className="hero-h1 text-white max-w-4xl flex flex-wrap justify-center gap-x-4 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
           {headline.map((word, i) => (
             <motion.span
               key={word}
@@ -102,7 +102,7 @@ function Hero({ heading = "Europe Enchanted Bungalows", subheading = "A private 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-white text-base sm:text-lg mt-6 max-w-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] font-normal leading-relaxed"
+          className="large-paragraph text-white mt-6 max-w-xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] leading-relaxed"
         >
           {subheading}
         </motion.p>
