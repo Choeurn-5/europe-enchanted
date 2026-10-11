@@ -6,5 +6,11 @@ export function getImageUrl(path: string | null | undefined): string {
   const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://cms.europeenchantedkohrong.com/public/api';
   const BASE_URL = API_URL.replace('/api', '');
   
-  return path.startsWith('/') ? `${BASE_URL}${path}` : `${BASE_URL}/${path}`;
+  let cleanPath = path;
+  // If uploaded via Filament (e.g. "abc.jpg" without folder prefix)
+  if (!cleanPath.startsWith('/') && !cleanPath.startsWith('images/') && !cleanPath.startsWith('storage/')) {
+    cleanPath = `storage/${cleanPath}`;
+  }
+
+  return cleanPath.startsWith('/') ? `${BASE_URL}${cleanPath}` : `${BASE_URL}/${cleanPath}`;
 }
